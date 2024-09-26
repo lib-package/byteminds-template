@@ -1,13 +1,17 @@
 <script lang="ts">
 	import type { PageData } from './$types';
 	import { route } from '$lib/ROUTES';
-	import { superForm } from 'sveltekit-superforms/client';
+	import { SampleForm } from '$lib/components';
 
 	export let data: PageData;
 
-	const { form, message, errors, constraints, delayed, enhance } = superForm(data.basicForm, {
-		resetForm: true
-	});
+	const links = [
+		{ name: 'Prisma ORM', href: 'https://www.prisma.io/' },
+		{ name: 'Skeleton UI', href: 'https://www.skeleton.dev/' },
+		{ name: 'Kit Routes', href: 'https://www.kitql.dev/docs' },
+		{ name: 'Superforms', href: 'https://superforms.rocks/' },
+		{ name: 'Lucia Auth', href: 'https://lucia-auth.com/getting-started/' }
+	];
 </script>
 
 <div class="container mx-auto flex space-x-8">
@@ -18,54 +22,17 @@
 		</p>
 		<p>
 			This template also include set up of Prisma ORM - default database is MySQL, Skeleton UI
-			library, and Kit Routes
+			library, Kit Routes, Superforms, and Lucia auth
 		</p>
 		<p>Visit the following links:</p>
 		<ul class="list-inside list-disc">
-			<li><a class="anchor" href="https://www.prisma.io/">Prisma ORM</a></li>
-			<li><a class="anchor" href="https://www.skeleton.dev/">Skeleton UI</a></li>
-			<li><a class="anchor" href="https://www.kitql.dev/docs">Kit Routes</a></li>
-			<li><a class="anchor" href="https://superforms.rocks/">Superforms</a></li>
+			{#each links as link}
+				<li><a class="anchor" href={link.href} target="_blank">{link.name}</a></li>
+			{/each}
 		</ul>
 		<p class="mt-8">Happy Coding! &#128522</p>
 	</div>
 
-	<div class="mt-8 w-1/2 rounded-lg bg-surface-100 p-6 shadow-lg">
-		<h3 class="h3 mb-4">Sample Form</h3>
-		<form method="post" action={route('default /')} use:enhance>
-			<div class="mb-4">
-				<label class="label"
-					><span>Name</span>
-					<input
-						class="input"
-						type="text"
-						name="name"
-						placeholder="Enter your name"
-						aria-invalid={$errors.name ? 'true' : undefined}
-						bind:value={$form.name}
-						{...$constraints.name}
-					/>
-				</label>
-
-				<label class="label"
-					><span>Email</span>
-					<input
-						class="input"
-						type="email"
-						name="email"
-						placeholder="Enter your email"
-						aria-invalid={$errors.email ? 'true' : undefined}
-						bind:value={$form.email}
-						{...$constraints.email}
-					/>
-				</label>
-			</div>
-			<button type="submit" class="variant-filled-tertiary btn w-full"
-				>{$delayed ? 'Submiting...' : 'Submit'}</button
-			>
-			{#if $message && typeof $message === 'string'}
-				<p class="text-center text-sm text-success-700">{$message}</p>
-			{/if}
-		</form>
-	</div>
+	<!--Delete this component in the components folder inside the lib folder-->
+	<SampleForm formData={data.basicForm} />
 </div>
