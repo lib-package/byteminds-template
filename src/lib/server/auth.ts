@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { Lucia, TimeSpan, type Adapter } from 'lucia';
 import { PrismaAdapter } from '@lucia-auth/adapter-prisma';
 import { dev } from '$app/environment';
@@ -26,3 +27,7 @@ declare module 'lucia' {
 interface DatabaseUserAttributes {
 	id: string;
 }
+=======
+//put your authentication logic here
+//recommended to use lucia auth
+>>>>>>> main

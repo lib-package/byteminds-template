@@ -1,4 +1,5 @@
 import db from '$lib/server/db';
+<<<<<<< HEAD
 import { lucia } from '$lib/server/auth';
 import type { Handle } from '@sveltejs/kit';
 
@@ -33,6 +34,10 @@ export const handle: Handle = async ({ event, resolve }) => {
 
 	return resolve(event);
 };
+=======
+
+//put your handler here
+>>>>>>> main
 
 // Ensure PrismaClient disconnect on app shutdown
 process.on('beforeExit', async () => {
