@@ -7,7 +7,7 @@ const main = async () => {
 		await prisma.user.upsert({
 			where: { id: '1' },
 			update: {},
-			create: { id: '1', username: 'user', password: 'secret123' }
+			create: { id: '1', name: 'user', email: 'test@mail.net' }
 		});
 	} catch (e) {
 		console.error(e);
