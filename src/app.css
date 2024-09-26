@@ -1,7 +1,6 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
-<<<<<<< HEAD
 
 @font-face {
 	font-family: 'Inter';
@@ -13,5 +12,3 @@
 	--theme-font-family-base: 'Inter', sans-serif;
 	--theme-font-family-heading: 'Inter', sans-serif;
 }
-=======
->>>>>>> main
