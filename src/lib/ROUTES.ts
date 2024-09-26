@@ -23,7 +23,7 @@ const SERVERS = {
  * ACTIONS
  */
 const ACTIONS = {
-  
+  "default /": `/`
 }
 
 /**
@@ -132,7 +132,7 @@ export function route<T extends keyof AllTypes>(key: T, ...params: any[]): strin
 export type KIT_ROUTES = {
   PAGES: { '/': never }
   SERVERS: Record<string, never>
-  ACTIONS: Record<string, never>
+  ACTIONS: { 'default /': never }
   LINKS: { 'blog': never }
   Params: Record<string, never>
 }

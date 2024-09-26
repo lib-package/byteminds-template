@@ -1,5 +1,6 @@
 import { join } from 'path';
 import type { Config } from 'tailwindcss';
+import forms from '@tailwindcss/forms';
 
 // 1. Import the Skeleton plugin
 import { skeleton } from '@skeletonlabs/tw-plugin';
@@ -17,7 +18,8 @@ const config = {
 	},
 	plugins: [
 		// 4. Append the Skeleton plugin (after other plugins)
-		skeleton({ themes: { preset: [{ name: 'modern', enhancements: true }] } })
+		skeleton({ themes: { preset: [{ name: 'modern', enhancements: true }] } }),
+		forms
 	]
 } satisfies Config;
 
